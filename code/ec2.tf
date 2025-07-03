@@ -8,7 +8,7 @@ resource "aws_instance" "microservice_1" {
     volume_size = 16      
     volume_type = "gp3"
   }
-  depends_on = [aws_security_group.microservice1_sg]
+  depends_on = [aws_security_group.microservice1_sg,aws_iam_instance_profile.ec2_profile]
 }
 
 # Security group allowing HTTP traffic to instance
