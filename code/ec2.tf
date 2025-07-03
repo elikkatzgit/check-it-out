@@ -32,7 +32,7 @@ resource "aws_security_group" "microservice1_sg" {
   }
 }
 
-# Classic ELB resource in front of the instance
+#Classic ELB resource in front of the instance
 resource "aws_elb" "check_elb" {
   name               = "check-elb"
   availability_zones = ["us-east-1a"]
