@@ -79,6 +79,10 @@ jobs:
       run: export TF_LOG=DEBUG ; terraform -chdir=code init
 
     # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Terraform Validate
+      run: export TF_LOG=DEBUG ; terraform -chdir=code validate
+      
+    # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform -chdir=code Format
       run: export TF_LOG=DEBUG ; terraform -chdir=code fmt -check
 
