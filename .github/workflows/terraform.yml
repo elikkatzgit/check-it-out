@@ -76,11 +76,11 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform -chdir=code Init
-      run: terraform -chdir=code init
+      run: export TF_LOG=DEBUG ; terraform -chdir=code init
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform -chdir=code Format
-      run: terraform -chdir=code fmt -check
+      run: export TF_LOG=DEBUG ; terraform -chdir=code fmt -check
 
     # Generates an execution plan for Terraform
     - name: Terraform -chdir=code Plan
