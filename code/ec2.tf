@@ -39,13 +39,26 @@ resource "aws_instance" "microservice_1" {
     volume_size = 16      
     volume_type = "gp3"
   }
-  depends_on = [aws_security_group.microservice1_sg,aws_iam_instance_profile.ec2_profile]
+  depends_on = [aws_security_group.microservice_sg,aws_iam_instance_profile.ec2_profile]
+}
+
+# microservice1 instance
+resource "aws_instance" "microservice_2" {
+  ami           = "ami-0c02fb55956c7d316"  
+  instance_type = "t2.micro"
+  security_groups = [aws_security_group.microservice_sg.name]
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  root_block_device {
+    volume_size = 16      
+    volume_type = "gp3"
+  }
+  depends_on = [aws_security_group.microservice_sg,aws_iam_instance_profile.ec2_profile]
 }
 
 
 # Security group allowing HTTP traffic to instance
-resource "aws_security_group" "microservice1_sg" {
-  name        = "microservice1_sg"
+resource "aws_security_group" "microservice_sg" {
+  name        = "microservice_sg"
   description = "Allow HTTP inbound"
 
   ingress {
