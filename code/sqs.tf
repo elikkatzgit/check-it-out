@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "aws_sqs_queue" "microservice1" {
   name                      = "microservice1"
   visibility_timeout_seconds = 30
