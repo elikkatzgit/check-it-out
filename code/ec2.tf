@@ -10,6 +10,11 @@ resource "aws_subnet" "public_subnet" {
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 }
+
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.check_vpc.id
+}
+
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.check_vpc.id
 
