@@ -1,9 +1,3 @@
-resource "aws_s3_bucket" "terraform_state" {
-  bucket		  = "check-bucket"
-  
-  versioning {
-    enabled = false
-  }  
+resource "aws_s3_bucket" "check_it_bucket" {
+  bucket		  = "check-bucket" 
 }
-
-
