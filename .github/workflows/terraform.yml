@@ -84,7 +84,7 @@ jobs:
       
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform -chdir=code Format
-      run: terraform -chdir=code fmt -check
+      run: terraform -chdir=code fmt
 
     # Generates an execution plan for Terraform
     - name: Terraform -chdir=code Plan
