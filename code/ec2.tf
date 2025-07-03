@@ -42,6 +42,7 @@ resource "aws_instance" "microservice_1" {
   depends_on = [aws_security_group.microservice1_sg,aws_iam_instance_profile.ec2_profile]
 }
 
+
 # Security group allowing HTTP traffic to instance
 resource "aws_security_group" "microservice1_sg" {
   name        = "microservice1_sg"
