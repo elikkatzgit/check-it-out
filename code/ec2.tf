@@ -1,3 +1,11 @@
+resource "aws_subnet" "private_subnet" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
+  subnet_id = aws_subnet.private_subnet.id
+  map_public_ip_on_launch = false
+}
+
 # microservice1 instance
 resource "aws_instance" "microservice_1" {
   ami           = "ami-0c02fb55956c7d316"  
